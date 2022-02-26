@@ -33,7 +33,6 @@ function App() {
   const messageContainerRef = React.useRef<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
-    console.log("scrolling");
     if (messageContainerRef.current) {
       messageContainerRef.current.scrollTo(
         0,
@@ -84,7 +83,7 @@ function App() {
       dispatch(currentMessageChanged(""));
     }
   }
-  
+
   return (
     <Styles.AppContainer>
       {clientStatus !== "error" ? null : (
@@ -100,12 +99,7 @@ function App() {
               <Styles.MessageItem key={index} source={source}>
                 {textContent}
               </Styles.MessageItem>
-              {imgSrc && (
-                <Styles.Image
-                  src={imgSrc}
-                  alt="catImage"
-                />
-              )}
+              {imgSrc && <Styles.Image src={imgSrc} alt="catImage" />}
             </React.Fragment>
           ))}
         </Styles.Messages>
